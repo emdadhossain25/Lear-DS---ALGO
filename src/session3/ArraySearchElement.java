@@ -11,8 +11,12 @@ public class ArraySearchElement {
         int eltLinear = 6;
         int indexLinearSearch = linearSearch(nums, eltLinear);
 
+        System.out.println("linearSearchResult: " + indexLinearSearch);
         int eltBinary = 6;
         int indexBinarySearch = binarySearch(nums, eltBinary);
+        System.out.println("BinarySearchResult: " + indexBinarySearch);
+        int maxElement = findMaxElement(nums);
+        System.out.println("MaxElement: " + maxElement);
     }
 
     private static int binarySearch(int[] nums, int eltBinary) {
@@ -40,5 +44,15 @@ public class ArraySearchElement {
             }
         }
         return i;
+    }
+
+    public static int findMaxElement(int[] nums) {
+        int maxInd = 0;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[maxInd] < nums[i]) {
+                maxInd = i;
+            }
+        }
+        return nums[maxInd];
     }
 }
